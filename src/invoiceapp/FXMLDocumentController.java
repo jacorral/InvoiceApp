@@ -65,7 +65,7 @@ public class FXMLDocumentController implements Initializable {
         buildItems();
         printItems();
         buildTable();
-        listComboBox.getItems().addAll("English", "Spanish");
+        listComboBox.getItems().addAll("Chicago", "Mexico", "Brazil");
        // listComboBox.setValue(null);
         
     }    
