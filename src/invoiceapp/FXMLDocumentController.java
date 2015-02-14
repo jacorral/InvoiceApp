@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.ComboBox;
 
 /**
  *
@@ -23,10 +24,10 @@ public class FXMLDocumentController implements Initializable {
     private final ItemManager im = ItemManager.getInstance();
     private ObservableList<Item> itemList = FXCollections.observableArrayList();
     
-    @FXML
     private Label label;
-    
     @FXML
+    private ComboBox<?> itemsList;
+    
     private void handleButtonAction(ActionEvent event) {
        // System.out.println("You clicked me!");
         label.setText("Hello World!");

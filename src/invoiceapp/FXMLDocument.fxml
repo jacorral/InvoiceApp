@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" fx:controller="invoiceapp.FXMLDocumentController">
-    <children>
-        <Button layoutX="126" layoutY="90" text="Click Me!" onAction="#handleButtonAction" fx:id="button" />
-        <Label layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label" />
-    </children>
+<AnchorPane id="AnchorPane" prefHeight="365.0" prefWidth="525.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="invoiceapp.FXMLDocumentController">
+   <children>
+      <TableView layoutX="52.0" layoutY="153.0" prefHeight="161.0" prefWidth="449.0" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="52.0" AnchorPane.rightAnchor="24.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Item #" />
+          <TableColumn prefWidth="75.0" text="Description" />
+            <TableColumn prefWidth="75.0" text="Price" />
+            <TableColumn prefWidth="75.0" text="Quantity" />
+            <TableColumn prefWidth="75.0" text="Tax" />
+            <TableColumn prefWidth="75.0" text="Total" />
+        </columns>
+      </TableView>
+      <ComboBox fx:id="itemsList" layoutX="352.0" layoutY="17.0" prefWidth="150.0" promptText="Select Country" AnchorPane.bottomAnchor="322.0" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="17.0" />
+      <Label layoutX="50.0" layoutY="17.0" prefHeight="53.0" prefWidth="218.0" text="INVOICE 123456">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="51.0" layoutY="89.0" text="All Itesm warehouse" />
+      <Label layoutX="51.0" layoutY="119.0" text="123 Item Square" />
+      <TextField layoutX="394.0" layoutY="322.0" prefHeight="26.0" prefWidth="108.0" AnchorPane.bottomAnchor="17.0" AnchorPane.rightAnchor="23.0" />
+      <Label layoutX="342.0" layoutY="324.0" prefHeight="29.0" prefWidth="38.0" text="Total" AnchorPane.bottomAnchor="12.0" AnchorPane.rightAnchor="145.0" />
+   </children>
+   <effect>
+      <InnerShadow />
+   </effect>
 </AnchorPane>
