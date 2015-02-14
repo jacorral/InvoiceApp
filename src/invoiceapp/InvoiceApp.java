@@ -20,6 +20,8 @@ public class InvoiceApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        
         
         Scene scene = new Scene(root);
         stage.setTitle("'We got em Items'");
@@ -27,6 +29,7 @@ public class InvoiceApp extends Application {
         stage.show();
     }
 
+    
     /**
      * @param args the command line arguments
      */

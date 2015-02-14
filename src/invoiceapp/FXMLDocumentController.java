@@ -8,8 +8,10 @@ package invoiceapp;
 import com.DaBandit.invoice.*;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Locale;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.collections.FXCollections;
@@ -19,8 +21,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.StringProperty;
-import javafx.beans.property.DoubleProperty;
 import javafx.scene.control.TextField;
 
 /**
@@ -53,6 +53,8 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private ComboBox<String> listComboBox;
     
+    //private  ResourceBundle resources;
+    
     private void handleButtonAction(ActionEvent event) {
        // System.out.println("You clicked me!");
         label.setText("Hello World!");
@@ -60,15 +62,23 @@ public class FXMLDocumentController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+       // FXMLLoader fxmlLoader = new FXMLLoader();
         
+        
+        // TODO
+       // resources = ResourceBundle.getBundle("properties.Bundle_sp_MX");
+        
+        //fxmlLoader.setResources(resources);
         buildItems();
         printItems();
         buildTable();
         listComboBox.getItems().addAll("Chicago", "Mexico", "Brazil");
        // listComboBox.setValue(null);
         
-    }    
+        
+    }
+    
+  
     
     private void buildItems(){
         Item item1 = new Item("item 1", 50.0, 10, 0.1);

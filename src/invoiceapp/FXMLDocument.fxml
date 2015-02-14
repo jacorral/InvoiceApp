@@ -12,12 +12,12 @@
    <children>
       <TableView fx:id="itemsTable" layoutX="50.0" layoutY="153.0" prefHeight="161.0" prefWidth="451.0" AnchorPane.bottomAnchor="51.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="110.0">
         <columns>
-          <TableColumn fx:id="itemNumberColumn" prefWidth="75.0" text="Item #" />
+          <TableColumn fx:id="itemNumberColumn" prefWidth="75.0" text="%item" />
           <TableColumn fx:id="descriptionColumn" prefWidth="93.0" text="Description" />
-            <TableColumn fx:id="priceColumn" prefWidth="57.0" text="Price" />
-            <TableColumn fx:id="quantityColumn" prefWidth="75.0" text="Quantity" />
-            <TableColumn fx:id="taxColumn" prefWidth="75.0" text="Tax" />
-            <TableColumn fx:id="totalColumn" prefWidth="75.0" text="Total" />
+            <TableColumn fx:id="priceColumn" prefWidth="57.0" text="%price" />
+            <TableColumn fx:id="quantityColumn" prefWidth="75.0" text="%quantity" />
+            <TableColumn fx:id="taxColumn" prefWidth="75.0" text="%tax" />
+            <TableColumn fx:id="totalColumn" prefWidth="75.0" text="%total" />
         </columns>
       </TableView>
       <ComboBox fx:id="listComboBox" layoutX="334.0" layoutY="22.0" prefWidth="150.0" promptText="Select Locale" AnchorPane.leftAnchor="334.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="22.0" />
