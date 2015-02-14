@@ -33,6 +33,7 @@ public class ItemManager {
     
     public void addItem(Item itm){
         Item item = new Item(itm);
+        itm.total.set(itm.calculateTotal());
         observableList.add(item);
     }
     

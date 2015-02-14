@@ -30,8 +30,9 @@ public class Item {
             new SimpleIntegerProperty(this, "quantity", 0);
     public final DoubleProperty tax =
             new SimpleDoubleProperty(this, "tax", 0.00);
-    public final IntegerProperty total =
-            new SimpleIntegerProperty(this, "total", 0);
+    public final DoubleProperty total =
+            new SimpleDoubleProperty(this, "total", 0);
+    
             
     
     public Item(String desc, Double price, Integer quantity, Double tax){
@@ -40,6 +41,7 @@ public class Item {
         this.price.set(price);
         this.quantity.set(quantity);
         this.tax.set(tax);
+        
     }
     
     public Item(Item itm){
@@ -48,6 +50,8 @@ public class Item {
         this.price.set(itm.getPrice());
         this.quantity.set(itm.getQuantity());
         this.tax.set(itm.getTax());
+        this.total.set(itm.calculateTotal());
+       
         
     }
     //Setters and getters for the property values
@@ -81,17 +85,18 @@ public class Item {
     public Double getTax(){
         return this.tax.get();
     }
-    public void setTotal(Integer in){
-        this.total.set(in);
-    }
-    public Integer getTotal(){
+   
+    public Double getTotal(){
+        this.total.set(this.calculateTotal());
         return this.total.get();
     }
     
     
     public Double calculateTotal(){
       Double lItemTotal = (this.quantity.get()*this.price.get())*this.tax.get();
-        return lItemTotal;
+      Double total = lItemTotal + (this.quantity.get()*this.price.get());
+      
+        return total;
     }
     
     

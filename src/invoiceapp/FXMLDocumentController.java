@@ -43,9 +43,9 @@ public class FXMLDocumentController implements Initializable {
     }    
     
     private void buildItems(){
-        Item item1 = new Item("item 1", 50.0, 10, 0.9);
-        Item item2 = new Item("item 2", 150.0, 11, 0.9);
-        Item item3 = new Item("item 3", 250.0, 12, 0.9);
+        Item item1 = new Item("item 1", 50.0, 10, 0.1);
+        Item item2 = new Item("item 2", 150.0, 11, 0.1);
+        Item item3 = new Item("item 3", 250.0, 12, 0.1);
         
         im.addItem(item1);
         im.addItem(item2);
@@ -56,8 +56,11 @@ public class FXMLDocumentController implements Initializable {
         
         for(int i = 0; i < itemList.size(); i++){
             System.out.println("Item: " + itemList.get(i).itemNumber.get() 
-                    + " Discription: " + itemList.get(i).getDescription()
-                    + " Total = "+ itemList.get(i).calculateTotal());
+                    + " Discription: " + itemList.get(i).description.get()
+                    + "Quantity: " + itemList.get(i).quantity.get()
+                    + " Price: " + itemList.get(i).price.get()
+                    + " Tax: " + itemList.get(i).tax.get()
+                    + " Total = "+ itemList.get(i).total.get());
         }
     }
     
