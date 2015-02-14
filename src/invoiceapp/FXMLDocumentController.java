@@ -51,7 +51,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private TextField itemsTotal;
     @FXML
-    private ComboBox<?> listComboBox;
+    private ComboBox<String> listComboBox;
     
     private void handleButtonAction(ActionEvent event) {
        // System.out.println("You clicked me!");
@@ -65,7 +65,8 @@ public class FXMLDocumentController implements Initializable {
         buildItems();
         printItems();
         buildTable();
-        
+        listComboBox.getItems().addAll("English", "Spanish");
+       // listComboBox.setValue(null);
         
     }    
     

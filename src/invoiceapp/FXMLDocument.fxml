@@ -20,7 +20,7 @@
             <TableColumn fx:id="totalColumn" prefWidth="75.0" text="Total" />
         </columns>
       </TableView>
-      <ComboBox fx:id="listComboBox" layoutX="352.0" layoutY="17.0" prefWidth="150.0" promptText="Select Country" AnchorPane.bottomAnchor="322.0" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="17.0" />
+      <ComboBox fx:id="listComboBox" layoutX="352.0" layoutY="17.0" prefWidth="150.0" promptText="Select Locale" AnchorPane.bottomAnchor="322.0" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="17.0" />
       <Label layoutX="50.0" layoutY="17.0" prefHeight="53.0" prefWidth="218.0" text="INVOICE 123456">
          <font>
             <Font size="18.0" />
