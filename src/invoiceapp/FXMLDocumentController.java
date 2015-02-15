@@ -53,7 +53,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private ComboBox<String> listComboBox;
     
-    //private  ResourceBundle resources;
+    private  ResourceBundle resources;
     
     private void handleButtonAction(ActionEvent event) {
        // System.out.println("You clicked me!");
@@ -63,10 +63,12 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
        // FXMLLoader fxmlLoader = new FXMLLoader();
+       // Locale mex = new Locale("es", "MX");
         
         
         // TODO
-       // resources = ResourceBundle.getBundle("properties.Bundle_sp_MX");
+       resources = ResourceBundle.getBundle("Bundle");
+      
         
         //fxmlLoader.setResources(resources);
         buildItems();
