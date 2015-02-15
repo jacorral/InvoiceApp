@@ -6,6 +6,7 @@
 package invoiceapp;
 
 import javafx.application.Application;
+import java.util.ResourceBundle;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -19,9 +20,14 @@ public class InvoiceApp extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+       // Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
         FXMLLoader fxmlLoader = new FXMLLoader();
         
+        fxmlLoader.setResources(ResourceBundle.getBundle("properties.Bundle"));
+        fxmlLoader.setLocation(InvoiceApp.class.getResource("FXMLDoucument.fxml"));
+        Parent root = (Parent)fxmlLoader.load();
+        
+        //Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
         
         Scene scene = new Scene(root);
         stage.setTitle("'We got em Items'");
