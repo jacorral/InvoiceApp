@@ -62,12 +62,16 @@ public class FXMLDocumentController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       // FXMLLoader fxmlLoader = new FXMLLoader();
-       // Locale mex = new Locale("es", "MX");
+    //@FXML
+    //public void initialize( ){
+       
+        //Locale locale = new Locale("en", "US");
         
-        
+        resources = rb;
+        setTable();
         // TODO
-       resources = ResourceBundle.getBundle("Bundle");
+        //resources = ResourceBundle.getBundle("properties.Bundle", locale);
+        
       
         
         //fxmlLoader.setResources(resources);
@@ -105,6 +109,7 @@ public class FXMLDocumentController implements Initializable {
     }
     private void buildTable(){
         
+        
         ObservableList<Item> tableItems = FXCollections.observableList(im.getAllItems());
        // System.out.println(tableItems.get(1).price.get());
         itemNumberColumn.setCellValueFactory(new PropertyValueFactory<>("itemNumber"));
@@ -122,6 +127,21 @@ public class FXMLDocumentController implements Initializable {
         }
        // System.out.println( ((Number)sum).toString()  );
         itemsTotal.setText(((Number)sum).toString());
+        
+    }
+    
+    public void setTable(){
+        //Update headings
+       // Locale locale = new Locale("en", "US");
+        //resources = ResourceBundle.getBundle("invoiceapp.Bundle", locale);
+        
+        itemNumberColumn.setText(resources.getString("item"));
+        descriptionColumn.setText(resources.getString("description"));
+        quantityColumn.setText(resources.getString("quantitiy"));
+        priceColumn.setText(resources.getString("price"));
+        taxColumn.setText(resources.getString("tax"));
+        totalColumn.setText(resources.getString("total"));
+        listComboBox.setPromptText(resources.getString("setLocation"));
         
     }
 }
