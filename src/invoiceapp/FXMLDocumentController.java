@@ -50,7 +50,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private TableColumn<?, ?> quantityColumn;
     @FXML
-    private TableColumn<?, ?> taxColumn;
+    private TableColumn<Item, Double> taxColumn;
     @FXML
     private TableColumn<Item, Double> totalColumn;
     @FXML
@@ -61,7 +61,7 @@ public class FXMLDocumentController implements Initializable {
     private  ResourceBundle resources;
     private Currency currentCurrency;
     private NumberFormat currencyFormatter;
-    
+    private NumberFormat percentFormat;
     
     private void handleButtonAction(ActionEvent event) {
        // System.out.println("You clicked me!");
@@ -70,40 +70,19 @@ public class FXMLDocumentController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    //@FXML
-    //public void initialize( ){
-       
-        //Locale locale = Locale.getDefault();
-        Locale locale = new Locale("zh","CN");
-        resources = ResourceBundle.getBundle("properties.Bundle_es_MX", locale);
-        
-        //Currency formatter
-        currentCurrency = Currency.getInstance(locale);
-        currencyFormatter = NumberFormat.getCurrencyInstance(locale);
-        
-        //resources = rb;
-        setTable();
-        // TODO
-        //resources = ResourceBundle.getBundle("properties.Bundle", locale);
-        
-      
-        
-        //fxmlLoader.setResources(resources);
+    
         buildItems();
         printItems();
-        buildTable(locale);
         listComboBox.getItems().addAll("Chicago", "Mexico", "Brazil");
-       // listComboBox.setValue(null);
-        
-        
+       
     }
     
   
     
     private void buildItems(){
         Item item1 = new Item("item 1", 50.0, 10, 0.1);
-        Item item2 = new Item("item 2", 150.0, 11, 0.1);
-        Item item3 = new Item("item 3", 250.0, 12, 0.1);
+        Item item2 = new Item("item 2", 150.0, 11, 0.08);
+        Item item3 = new Item("item 3", 250.0, 12, 0.12);
         
         im.addItem(item1);
         im.addItem(item2);
@@ -128,6 +107,7 @@ public class FXMLDocumentController implements Initializable {
         //Currency formatter
         currentCurrency = Currency.getInstance(locale);
         currencyFormatter = NumberFormat.getCurrencyInstance(locale);
+        percentFormat = NumberFormat.getPercentInstance(locale);
         
         
         
@@ -157,6 +137,21 @@ public class FXMLDocumentController implements Initializable {
         
         
         taxColumn.setCellValueFactory(new PropertyValueFactory<>("tax"));
+        taxColumn.setCellFactory(column ->{
+            return new TableCell<Item, Double>(){
+                @Override
+                protected void updateItem(Double num, boolean empty){
+                    super.updateItem(num, empty);
+                    if (num == null || empty){
+                        setText(null);
+                        setStyle("");
+                    }else{
+                        setText(percentFormat.format(num));
+                    }
+                }
+                
+            };
+        });
         totalColumn.setCellValueFactory(new PropertyValueFactory<>("total"));
         totalColumn.setCellFactory(column ->{
             return new TableCell<Item, Double>(){
@@ -186,7 +181,7 @@ public class FXMLDocumentController implements Initializable {
         
     }
     
-    public void setTable(){
+    public void setTable(ResourceBundle resources){
         //Update headings
      //  Locale locale = new Locale("es", "MX");
      //  resources = ResourceBundle.getBundle("properties.Bundle_es_MX",locale);
@@ -199,6 +194,37 @@ public class FXMLDocumentController implements Initializable {
         taxColumn.setText(resources.getString("tax"));
         totalColumn.setText(resources.getString("total"));
         listComboBox.setPromptText(resources.getString("setLocation"));
+        
+    }
+
+    @FXML
+    private void setLocale(ActionEvent event) {
+        String sel = listComboBox.getSelectionModel().getSelectedItem();
+        Locale locale =  Locale.getDefault();
+        ResourceBundle resources = ResourceBundle.getBundle("properties.Bundle");
+        System.out.println("selection = " + sel);
+        switch(sel){
+            case "Chicago":
+                locale =  new Locale("en","US");
+                resources = ResourceBundle.getBundle("properties.Bundle_en_US", locale);
+                setTable(resources);
+                buildTable(locale);
+                break;
+            case "Mexico":
+                locale = new Locale("es","MX");
+                resources = ResourceBundle.getBundle("properties.Bundle_es_MX", locale);
+                setTable(resources);
+                buildTable(locale);
+                break;
+            case "Brazil" :
+                locale = new Locale("pt","BR");
+                resources = ResourceBundle.getBundle("properties.Bundle_pt_BR", locale);
+                setTable(resources);
+                buildTable(locale);
+                break;
+                
+        }
+       
         
     }
 }
