@@ -73,6 +73,11 @@ public class FXMLDocumentController implements Initializable {
     
         buildItems();
         printItems();
+        
+        Locale locale = Locale.getDefault();
+        resources = ResourceBundle.getBundle("properties.Bundle", locale);
+        buildTable(locale);
+        
         listComboBox.getItems().addAll("Chicago", "Mexico", "Brazil");
        
     }
