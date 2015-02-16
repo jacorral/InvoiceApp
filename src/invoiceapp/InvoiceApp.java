@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import java.util.Locale;
 
 /**
  *
@@ -22,9 +23,10 @@ public class InvoiceApp extends Application {
     public void start(Stage stage) throws Exception {
        // Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
         FXMLLoader fxmlLoader = new FXMLLoader();
+        Locale loc = new Locale("en","US");
         
-        fxmlLoader.setResources(ResourceBundle.getBundle("properties.Bundle"));
-        fxmlLoader.setLocation(InvoiceApp.class.getResource("FXMLDoucument.fxml"));
+        fxmlLoader.setResources(ResourceBundle.getBundle("properties.Bundle",loc));
+        fxmlLoader.setLocation(InvoiceApp.class.getResource("FXMLDocument.fxml"));
         Parent root = (Parent)fxmlLoader.load();
         
         //Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));

@@ -67,7 +67,7 @@ public class FXMLDocumentController implements Initializable {
        
         //Locale locale = new Locale("en", "US");
         
-        resources = rb;
+        //resources = rb;
         setTable();
         // TODO
         //resources = ResourceBundle.getBundle("properties.Bundle", locale);
@@ -132,12 +132,12 @@ public class FXMLDocumentController implements Initializable {
     
     public void setTable(){
         //Update headings
-       // Locale locale = new Locale("en", "US");
-        //resources = ResourceBundle.getBundle("invoiceapp.Bundle", locale);
+       Locale locale = new Locale("es", "MX");
+       resources = ResourceBundle.getBundle("properties.Bundle_es_MX",locale);
         
         itemNumberColumn.setText(resources.getString("item"));
         descriptionColumn.setText(resources.getString("description"));
-        quantityColumn.setText(resources.getString("quantitiy"));
+        quantityColumn.setText(resources.getString("quantity"));
         priceColumn.setText(resources.getString("price"));
         taxColumn.setText(resources.getString("tax"));
         totalColumn.setText(resources.getString("total"));
