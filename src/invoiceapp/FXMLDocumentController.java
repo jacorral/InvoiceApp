@@ -76,6 +76,7 @@ public class FXMLDocumentController implements Initializable {
         
         Locale locale = Locale.getDefault();
         resources = ResourceBundle.getBundle("properties.Bundle", locale);
+        setTable(resources);
         buildTable(locale);
         
         listComboBox.getItems().addAll("Chicago", "Mexico", "Brazil");
@@ -88,10 +89,16 @@ public class FXMLDocumentController implements Initializable {
         Item item1 = new Item("item 1", 50.0, 10, 0.1);
         Item item2 = new Item("item 2", 150.0, 11, 0.08);
         Item item3 = new Item("item 3", 250.0, 12, 0.12);
+        Item item4 = new Item("item 4", 100.0, 25, 0.11);
+        Item item5 = new Item("item 5", 200.0, 20, .09);
+        Item item6 = new Item("item 6", 87.3, 50, 0.075);
         
         im.addItem(item1);
         im.addItem(item2);
         im.addItem(item3);
+        im.addItem(item4);
+        im.addItem(item5);
+        im.addItem(item6);
     }
     private void printItems(){
         itemList = FXCollections.observableList(im.getAllItems());
