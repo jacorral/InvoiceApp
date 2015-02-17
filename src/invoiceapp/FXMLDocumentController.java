@@ -193,7 +193,7 @@ public class FXMLDocumentController implements Initializable {
         
     }
     
-    public void setTable(ResourceBundle resources){
+    private void setTable(ResourceBundle resources){
         //Update headings
      //  Locale locale = new Locale("es", "MX");
      //  resources = ResourceBundle.getBundle("properties.Bundle_es_MX",locale);
